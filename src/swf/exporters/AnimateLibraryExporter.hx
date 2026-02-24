@@ -1,5 +1,6 @@
 package swf.exporters;
 
+import sys.FileSystem;
 import swf.tags.TagFileAttributes;
 import format.png.Data;
 import format.png.Writer as PNGWriter;
@@ -1303,13 +1304,17 @@ class AnimateLibraryExporter
 
 				if (baseClassName != null)
 				{
-					context.BASE_CLASS_NAME = baseClassName;
+					var parts = baseClassName.split(".");
+					baseClassName = parts.pop();
+					var baseClassNamePrefix = parts.join(".");
+					context.BASE_CLASS_NAME = SymbolUtils.formatClassName(baseClassName, baseClassNamePrefix);
 				}
 
 				var template = new Template(templateData);
 
-				var templateFile = new Asset("", Path.combine(Path.combine(targetPath, Path.directory(className.split(".").join("/"))), name + ".hx"),
-					cast AssetType.TEMPLATE);
+				var templatePath = Path.combine(targetPath, Path.directory(className.split(".").join("/")));
+				if (className.indexOf(".") > -1 && !FileSystem.exists(templatePath)) FileSystem.createDirectory(templatePath);
+				var templateFile = new Asset("", Path.combine(templatePath, name + ".hx"), cast AssetType.TEMPLATE);
 				templateFile.embed = false;
 				templateFile.data = template.execute(context);
 				output.push(templateFile);

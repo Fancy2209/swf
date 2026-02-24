@@ -186,7 +186,8 @@ class Tools
 			var symbolID = swf.symbols.get(className);
 			var templateData = null;
 			var symbol = swf.data.getCharacter(symbolID);
-			var baseClassName = null;
+			var baseClassName = "";
+			var baseClassPackage = "";
 
 			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (symbol, TagDefineBits)
 				|| #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (symbol, TagDefineBitsJPEG2)
@@ -216,7 +217,12 @@ class Tools
 					{
 						case NPublic(_) if (!~/^flash\./.match(superClassData.nameSpaceName)):
 							baseClassName = ("" == superClassData.nameSpaceName ? "" : superClassData.nameSpaceName + ".") + superClassData.name;
-							baseClassName = baseClassName.replace(baseClassName.substr(0, 1), baseClassName.substr(0, 1).toUpperCase());
+							if (baseClassName.indexOf(".") > -1)
+							{
+								var parts = baseClassName.split(".");
+								baseClassName = parts.pop();
+								baseClassPackage = parts.join(".");
+							}
 						case _:
 					}
 				}
@@ -320,12 +326,21 @@ class Tools
 					PACKAGE_NAME: packageName,
 					NATIVE_CLASS_NAME: StringTools.trim(className),
 					CLASS_NAME: name,
-					BASE_CLASS_NAME: baseClassName,
+					BASE_CLASS_NAME: "",
 					SWF_ID: swfAsset.id,
 					SYMBOL_ID: symbolID,
 					PREFIX: "",
 					CLASS_PROPERTIES: classProperties
 				};
+				if (baseClassName != "")
+				{
+					var baseClassNamePrefix = "";
+					var parts = baseClassName.split(".");
+					baseClassName = parts.pop();
+					baseClassNamePrefix = parts.join(".");
+
+					context.BASE_CLASS_NAME = SymbolUtils.formatClassName(baseClassName, baseClassNamePrefix);
+				}
 				var template = new Template(templateData);
 				var targetPath:String;
 
@@ -339,6 +354,8 @@ class Tools
 
 				// }
 
+				var templatePath = Path.combine(targetPath, Path.directory(className.split(".").join("/")));
+				if (className.indexOf(".") > -1 && !FileSystem.exists(templatePath)) FileSystem.createDirectory(templatePath);
 				var templateFile = new Asset("", Path.combine(targetPath, Path.directory(className.split(".").join("/"))) + "/" + prefix + name + ".hx",
 					AssetType.TEMPLATE);
 				templateFile.data = template.execute(context);
