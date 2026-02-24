@@ -47,6 +47,7 @@ import sys.io.Process;
 import sys.FileSystem;
 
 using swf.exporters.FrameScriptParser.AVM2;
+using StringTools;
 
 class Tools
 {
@@ -215,6 +216,7 @@ class Tools
 					{
 						case NPublic(_) if (!~/^flash\./.match(superClassData.nameSpaceName)):
 							baseClassName = ("" == superClassData.nameSpaceName ? "" : superClassData.nameSpaceName + ".") + superClassData.name;
+							baseClassName = baseClassName.replace(baseClassName.substr(0, 1), baseClassName.substr(0, 1).toUpperCase());
 						case _:
 					}
 				}
