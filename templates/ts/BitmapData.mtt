@@ -8,7 +8,7 @@ class ::NATIVE_CLASS_NAME:: extends BitmapData {
 
 	constructor (width:number = 0, height:number = 0, transparent:bool = false, background:number = 0) {
 		super (width, height, transparent, background);
-		Assets.initBinding(::NATIVE_CLASS_NAME::, this);
+		Assets.initBinding("::NATIVE_CLASS_NAME::", this);
 	}
 
 }

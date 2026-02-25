@@ -4,7 +4,7 @@ var Assets = require ("openfl/utils/Assets").default;
 
 var ::NATIVE_CLASS_NAME:: = (function() {
 	::if BASE_CLASS_NAME::::BASE_CLASS_NAME::::else::MovieClip::end::.call (this);
-	Assets.initBinding(::NATIVE_CLASS_NAME::, this);
+	Assets.initBinding("::NATIVE_CLASS_NAME::", this);
 })
 
 ::NATIVE_CLASS_NAME::.prototype = Object.create(::if BASE_CLASS_NAME::::BASE_CLASS_NAME::::else::MovieClip::end::.prototype);

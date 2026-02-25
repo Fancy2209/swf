@@ -9,7 +9,7 @@ package ::PACKAGE_NAME:: {
 
 		public function ::NATIVE_CLASS_NAME:: () {
 			super ();
-			Assets.initBinding(::NATIVE_CLASS_NAME::, this);
+			Assets.initBinding("::NATIVE_CLASS_NAME::", this);
 		}
 	}
 }

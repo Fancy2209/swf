@@ -5,7 +5,7 @@ class ::NATIVE_CLASS_NAME:: extends ::if BASE_CLASS_NAME::::BASE_CLASS_NAME::::e
 
 	constructor () {
 		super ();
-		Assets.initBinding(::NATIVE_CLASS_NAME::, this);
+		Assets.initBinding("::NATIVE_CLASS_NAME::", this);
 	}
 
 }
