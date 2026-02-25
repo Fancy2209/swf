@@ -1,5 +1,5 @@
 import Assets from "openfl/utils/Assets";
-:if BASE_CLASS_NAME::::else::import MovieClip from "openfl/display/MovieClip";::end::
+::if BASE_CLASS_NAME::::else::import MovieClip from "openfl/display/MovieClip";::end::
 
 class ::NATIVE_CLASS_NAME:: extends ::if BASE_CLASS_NAME::::BASE_CLASS_NAME::::else::MovieClip::end:: {
 

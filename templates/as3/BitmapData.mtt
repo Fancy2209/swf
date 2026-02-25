@@ -4,7 +4,7 @@ package ::PACKAGE_NAME:: {
 
 	public class ::NATIVE_CLASS_NAME:: extends BitmapData {
 
-		public function ::NATIVE_CLASS_NAME:: (width:Int = 0, height:Int = 0, transparent:Bool = false, background:Int = 0) {
+		public function ::NATIVE_CLASS_NAME:: (width:int = 0, height:int = 0, transparent:boolean = false, background:int = 0) {
 			super (width, height, transparent, background);
 		}
 
