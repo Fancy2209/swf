@@ -4,7 +4,7 @@ package ::PACKAGE_NAME:: {
 
 	public class ::NATIVE_CLASS_NAME:: extends ::if BASE_CLASS_NAME::::BASE_CLASS_NAME::::else::MovieClip::end:: {
 
-		::foreach CLASS_PROPERTIES:: public var ::name:: : ::type::;
+		::foreach CLASS_PROPERTIES:: public var ::name:::::type::;
 		::end::
 
 		public function ::NATIVE_CLASS_NAME:: () {
