@@ -4,7 +4,7 @@ import Assets from "openfl/utils/Assets";
 
 class ::NATIVE_CLASS_NAME:: extends ::if BASE_CLASS_NAME::::BASE_CLASS_NAME::::else::MovieClip::end:: {
 
-	::foreach CLASS_PROPERTIES:: ::name::;
+	::foreach CLASS_PROPERTIES::::name::;
 	::end::
 
 	constructor () {
