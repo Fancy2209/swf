@@ -594,10 +594,11 @@ class Tools
 
 			var inputPath = words.length > 1 ? words[1] : Sys.getCwd();
 			var outputPath = words.length > 2 ? words[2] : null;
+			var language = words.length > 3 ? words[3] : "haxe";
 
-			if (words.length < 2 || Path.extension(inputPath) == "swf" || Path.extension(inputPath) == "swc")
+			if (words.length < 3 || Path.extension(inputPath) == "swf" || Path.extension(inputPath) == "swc")
 			{
-				if (words.length > 3)
+				if (words.length > 4)
 				{
 					Log.error("Incorrect number of arguments for command 'process'");
 					return;
@@ -639,10 +640,6 @@ class Tools
 						Log.info("\x1b[1mProcessing file:\x1b[0m " + fileLabel, " - \x1b[1mProcessing file:\x1b[0m " + file + " \x1b[3;37m->\x1b[0m " + output);
 
 						var language = "haxe";
-						if(words[words.length-1] == "haxe" || words[words.length-1] == "ts" || words[words.length-1] == "as3" || words[words.length-1] == "es5" || words[words.length-1] == "es6")
-						{
-							language = words[words.length-1];
-						}
 						processFile(file, output, filePrefix, generate, language);
 					}
 				}

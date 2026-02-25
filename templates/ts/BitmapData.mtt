@@ -1,6 +1,7 @@
 import Assets from "openfl/utils/Assets";
+import Assets from "openfl/display/BitmapData";
 
-public class ::NATIVE_CLASS_NAME:: extends ::BASE_CLASS_NAME:: {
+class ::NATIVE_CLASS_NAME:: extends BitmapData {
 
 	::foreach CLASS_PROPERTIES:: ::name::;
 	::end::

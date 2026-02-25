@@ -1291,9 +1291,13 @@ class AnimateLibraryExporter
 					context.BASE_CLASS_NAME = baseClassName;
 				}
 
+				var languageExtension:String = ".hx";
+				if(language == "es5" || language == "es6") languageExtension = ".js";
+				if(language == "as3") languageExtension = ".as";
+
 				var template = new Template(templateData);
 
-				var templateFile = new Asset("", Path.combine(Path.combine(targetPath, Path.directory(className.split(".").join("/"))), name + ".hx"),
+				var templateFile = new Asset("", Path.combine(Path.combine(targetPath, Path.directory(className.split(".").join("/"))), name + languageExtension),
 					cast AssetType.TEMPLATE);
 				templateFile.embed = false;
 				templateFile.data = template.execute(context);
