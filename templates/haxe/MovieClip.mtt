@@ -1,0 +1,15 @@
+package ::PACKAGE_NAME::;
+@:bind @:native("::NATIVE_CLASS_NAME::") class ::CLASS_NAME:: extends ::BASE_CLASS_NAME:: {
+
+
+	::foreach CLASS_PROPERTIES::@:keep ::if hidden::@:noCompletion @:dox(hide) ::end::public var ::name:: (default, null):::type::;
+	::end::
+
+	public function new () {
+
+		super ();
+
+	}
+
+
+}

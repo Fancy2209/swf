@@ -1,0 +1,14 @@
+package ::PACKAGE_NAME:: {
+	import openfl.utils.Assets;
+
+	public class ::NATIVE_CLASS_NAME:: extends ::BASE_CLASS_NAME:: {
+
+		::foreach CLASS_PROPERTIES:: public var ::name:: : ::type::;
+		::end::
+
+		public function new () {
+			super ();
+			Assets.initBinding(::NATIVE_CLASS_NAME::, this);
+		}
+	}
+}

@@ -1,0 +1,9 @@
+package ::PACKAGE_NAME:: {
+	public class ::NATIVE_CLASS_NAME:: extends ::BASE_CLASS_NAME:: {
+
+		public function new () {
+			super ();
+			Assets.initBinding(::NATIVE_CLASS_NAME::, this);
+		}
+	}
+}

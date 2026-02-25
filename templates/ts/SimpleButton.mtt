@@ -1,0 +1,11 @@
+import Assets from "openfl/utils/Assets";
+
+public class ::NATIVE_CLASS_NAME:: extends ::BASE_CLASS_NAME:: {
+
+	constructor () {
+		super ();
+		Assets.initBinding(::NATIVE_CLASS_NAME::, this);
+	}
+
+}
+export default ::NATIVE_CLASS_NAME::;

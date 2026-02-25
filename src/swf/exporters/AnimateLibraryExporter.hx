@@ -1126,16 +1126,16 @@ class AnimateLibraryExporter
 		return;
 	}
 
-	public function generateClasses(targetPath:String, output:Array<Asset>, prefix:String = ""):Array<String>
+	public function generateClasses(targetPath:String, output:Array<Asset>, language:String = "haxe", prefix:String = ""):Array<String>
 	{
 		#if commonjs
-		var bitmapDataTemplate = File.getContent(Path.combine(js.Node.__dirname, "../templates/animate/BitmapData.mtt"));
-		var movieClipTemplate = File.getContent(Path.combine(js.Node.__dirname, "../templates/animate/MovieClip.mtt"));
-		var simpleButtonTemplate = File.getContent(Path.combine(js.Node.__dirname, "../templates/animate/SimpleButton.mtt"));
+		var bitmapDataTemplate = File.getContent(Path.combine(js.Node.__dirname, "../templates/" + language + "/BitmapData.mtt"));
+		var movieClipTemplate = File.getContent(Path.combine(js.Node.__dirname, "../templates/" + language + "/MovieClip.mtt"));
+		var simpleButtonTemplate = File.getContent(Path.combine(js.Node.__dirname, "../templates/" + language + "/SimpleButton.mtt"));
 		#else
-		var bitmapDataTemplate = File.getContent(Haxelib.getPath(new Haxelib("swf"), true) + "/templates/animate/BitmapData.mtt");
-		var movieClipTemplate = File.getContent(Haxelib.getPath(new Haxelib("swf"), true) + "/templates/animate/MovieClip.mtt");
-		var simpleButtonTemplate = File.getContent(Haxelib.getPath(new Haxelib("swf"), true) + "/templates/animate/SimpleButton.mtt");
+		var bitmapDataTemplate = File.getContent(Haxelib.getPath(new Haxelib("swf"), true) + "/templates/" + language + "/BitmapData.mtt");
+		var movieClipTemplate = File.getContent(Haxelib.getPath(new Haxelib("swf"), true) + "/templates/" + language + "/MovieClip.mtt");
+		var simpleButtonTemplate = File.getContent(Haxelib.getPath(new Haxelib("swf"), true) + "/templates/" + language + "/SimpleButton.mtt");
 		#end
 
 		var generatedClasses = [];

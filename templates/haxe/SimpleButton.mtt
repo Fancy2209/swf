@@ -1,0 +1,13 @@
+package ::PACKAGE_NAME::;
+@:bind @:native("::NATIVE_CLASS_NAME::") class ::CLASS_NAME:: extends ::BASE_CLASS_NAME:: {
+
+
+	public function new () {
+
+		super ();
+
+	}
+
+
+}
+#end
