@@ -1076,7 +1076,7 @@ class Tools
 								targetPath = Path.tryFullPath(targetDirectory) + "/haxe/_generated";
 							}
 
-							var generatedClasses = exporter.generateClasses("haxe", targetPath, output.assets, library.prefix);
+							var generatedClasses = exporter.generateClasses(targetPath, output.assets, "haxe", library.prefix);
 
 							// for (className in generatedClasses)
 							// {
